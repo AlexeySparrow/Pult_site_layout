@@ -1,0 +1,86 @@
+@import "../variables";
+
+.container {
+  @include size(100%, auto);
+  @include flex(column, center, center);
+  margin-top: -1.5rem;
+}
+
+.tel {
+  @include size(100%, auto);
+  @include flex(column, center, center);
+
+  a {
+    color: $textColor;
+    font-size: 2rem;
+    padding: 0 1rem 0.5rem 1rem;
+
+    &:hover {
+      color: $backgroundSite;
+      text-shadow: 0px 0px 3px $textColor,
+      0px -1px 25px $textColor;
+    }
+  }
+
+  span {
+    font-size: 0.7rem;
+  }
+}
+
+.links {
+  @include size(100%, auto);
+  @include flex(row, space-around, flex-start);
+  flex-wrap: wrap;
+  margin: 2rem 0;
+
+  ul {
+    @include size(30%, auto);
+    @include flex(column, space-between, center);
+  }
+
+  li {
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.age {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 560px) {
+  .links {
+    ul {
+      width: 45%;
+
+      &:last-child {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 380px) {
+
+  .tel {
+    a {
+      font-size: 1.5rem;
+    }
+  }
+
+  .links {
+    ul {
+      width: 100%;
+
+      &:nth-child(2) {
+        margin-top: 2rem;
+      }
+    }
+  }
+}

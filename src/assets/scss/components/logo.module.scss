@@ -1,0 +1,17 @@
+@import "../variables";
+
+.header {
+  @include size(100%, auto);
+  @include flex(row, center, center);
+  padding: 1rem 0;
+
+  span {
+    @include size(100%, 5px);
+    background: $textColor;
+  }
+
+  img {
+    width: 200px;
+    margin: 0 2rem;
+  }
+}

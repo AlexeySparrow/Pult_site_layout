@@ -1,0 +1,69 @@
+/* ---------- variables ---------- */
+
+// colors site
+$backgroundSite: rgb(21, 16, 25);
+$textColor: rgb(143, 201, 228);
+$oldPrice: #6a6a6a;
+
+// font site
+$fontSite: 'El Messiri', sans-serif;
+
+/* ---------- mixins ---------- */
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex($flex-direction, $justify-content, $align-items){
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+/* ---------- templates ---------- */
+
+%border {
+  border: none;
+  display: block;
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+
+  span {
+    @include size(100%, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border: 5px solid $textColor;
+    background: transparent;
+
+    &:before {
+      @include size(8%, 500%);
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: $backgroundSite;
+      transform: translate(-50%, -50%) rotate(-60deg);
+      transition: 0.3s;
+    }
+  }
+}
+
+%borderHover {
+  &:hover,
+  &:focus {
+    color: $backgroundSite;
+  }
+
+  &:hover span:before,
+  &:focus span:before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    background: $textColor;
+    width: 100%;
+    height: 1000%;
+  }
+}

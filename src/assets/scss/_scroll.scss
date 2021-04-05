@@ -1,0 +1,14 @@
+@import "variables";
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $oldPrice;
+  border: 3px solid $backgroundSite;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $textColor;
+}

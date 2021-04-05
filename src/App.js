@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import style from './assets/scss/components/app.module.scss'
+import {ParticleBackground} from "./components/ParticleBackground";
+import {AboutTheProduct} from "./components/AboutTheProduct";
+import {Logo} from "./components/Logo";
+import {Footer} from "./components/Footer";
+import {Slider} from "./components/Slider";
+import {Assortment} from "./components/Assortment";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+
+    const [aboutProduct, setAboutProduct] = useState(0)
+    const [numberProduct, setNumberProduct] = useState(0)
+    const [heightAbout, setHeightAbout] = useState('none')
+
+    return (
+        <div className={style.wrapper}>
+            <ParticleBackground/>
+            <Logo />
+            <div className={style.container}>
+                <Slider />
+                <Assortment
+                    setAboutProduct={setAboutProduct}
+                    setNumberProduct={setNumberProduct}
+                    setHeightAbout={setHeightAbout}
+                />
+                <AboutTheProduct
+                    aboutProduct={aboutProduct}
+                    numberProduct={numberProduct}
+                    setNumberProduct={setNumberProduct}
+                    heightAbout={heightAbout}
+                />
+            </div>
+            <Logo />
+            <div className={style.container}>
+                <Footer />
+            </div>
+        </div>
+    );
 }
-
-export default App;

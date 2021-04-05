@@ -1,0 +1,14 @@
+@import "../variables";
+
+.wrapper {
+  @include size(100%, auto);
+  min-height: 100vh;
+  background: $backgroundSite;
+}
+
+.container {
+  @include size(100%, auto);
+  position: relative;
+  z-index: 1;
+  padding: 1rem calc(20px + (50 - 20) * ((100vw - 320px) / (1600 - 320)));
+}
